@@ -1,0 +1,24 @@
+td{
+    width: 2em;
+    height:2em;
+    background-color: grey;
+    border:1px solid white;
+    margin:1px;
+}
+.obstacle{
+    color: pink;
+}
+.square{
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    line-height: 2em;
+}
+
+.wood-box{
+    width:50px;
+    height:50px;
+    background-color: red;
+}
+
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>AngryPigs</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style_base.css">
+    <!--Scripts here are external libs-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>APEditor</h1>
+    </header>
+    
+    <main>
+        <div name= "name" value="value" ></div>
+
+        <section id="editor-wrapper" class="main-body">
+
+            <div id="level-info-area" class="sidebar">
+
+                <div id="level-info" class="form">
+                    <!--accept只接受正常的Input-->
+                    <!-- action = "myResponse.php 是旧时会送到PHPserver的东西 -->
+
+                    <label>Level:</label>
+                    <select id="level-list" name="level-name">
+                        <option value=""> </option>
+                    </select><br />
+                    <br><br>
+                </div>
+
+
+
+                <form id="info-form" class="form">
+                    New Level Name:<br>
+                    <input type="text" name="levelName" value="level1" /><br>
+                    Obstacles:<br>
+                    <input type="text" name="obstacles" value="10" /><br>
+                    Cannons:<br>
+                    <input type="text" name="cannons" value="1" /><br>
+                    Shots:<br>
+                    <input type="text" name="shots" value="15" /><br>
+
+                    <input type="submit" name="action" value="Submit" />
+
+                </form>
+
+               
+                <br><br>
+
+                <form id="object-creator" class="form">
+
+                    <label>Create Objects:</label> <br>
+
+                    Name:<br>
+                    <input type="text" name="name" value = "a"/><br>
+                    Height:<br>
+                    <input type="text" name="height" value="10" /><br>
+                    Width:<br>
+                    <input type="text" name="width" value="10" /><br>
+                    Shape:<br>
+                    <select name="Shape"><br>
+                        <option value="Round">Round</option>
+                        <option value="Square">Square</option>
+                        <option value="Triangle">Triangle</option>
+                    </select><br>
+                    Texture:<br>
+                    <select name="Texture"><br>
+                        <option value="/Texture/Texture1.png">Brown</option>
+                        <option value="/Texture/Texture2.png">Yellow</option>
+                        <option value="/Texture/Texture3.png">Pink</option>
+                    </select><br>
+                    Friction:<br>
+                    <input type="text" name="friction" value="10" /><br>
+                    Mass:<br>
+                    <input type="text" name="mass" value="10" /><br>
+                    restitution:<br>
+                    <input type="text" name="restitution" value="10" /><br>
+
+                    <input type="submit" name="action" value="Submit" />
+
+                </form>
+
+                <br><br>
+
+
+            </div>
+
+
+            <div id="editor-area" class="mid-game">
+                 <!--This is generated programmatically-->
+                
+            </div>
+            
+            <div id="object-lib-area" class="sidebar">
+                <div id="object-list" class="box-border"> </div>
+            </div>
+
+        </section>
+
+        <section id="output-area">
+            <div id="output-field" class="box-it-up">
+                <!--Fill in dynamically-->
+            </div>
+        </section>
+
+        <div id="info-window" class="box-border feedback"></div>
+    </main>
+
+
+    <footer></footer>
+    <script type="module" src="./editor.js"></script>
+</body>
+
+</html>

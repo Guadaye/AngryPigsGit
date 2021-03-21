@@ -1,1 +1,1 @@
-{"name":"c","height":"100","width":"100","Shape":"Triangle","Texture":"/Texture/Texture1.png","friction":"10","mass":"10","restitution":"10"}
+{"type":"object","name":"c","height":"40","width":"40","Shape":"Square","Texture":"/Texture/Texture3.png","friction":"10","mass":"10","restitution":"10"}

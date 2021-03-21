@@ -108,6 +108,19 @@ export default class Editor {
 
        $('#editor-area').find('div').each((index,el)=>{
          
+       let imageAddress = $(el).css("background-image");
+       let image;
+       console.log(imageAddress);
+
+       if (imageAddress =='url("http://localhost:3000/Texture/Texture1.png")')
+       image = "url(../Texture/Texture1.png)"
+       else if (imageAddress =='url("http://localhost:3000/Texture/Texture2.png")')
+       image = "url(../Texture/Texture2.png)"
+       else if  (imageAddress =='url("http://localhost:3000/Texture/Texture3.png")')
+       image = "url(../Texture/Texture3.png)"
+       else 
+       image = "url(../Texture/Texture3.png)"
+
         let dic=
         {
             id:index,
@@ -115,7 +128,8 @@ export default class Editor {
             top:$(el).css("top"),
             height:$(el).css("height"),
             width:$(el).css("width"),
-            image:$(el).css("background-image"),
+            objectShape:$(el).css("border-radius"),
+            backgroundImage:image,
             objName:$(el).attr("id"),
         }
             level.object.push(dic);
@@ -169,6 +183,10 @@ export default class Editor {
         
                 let arrayPosition = this._findArrayPosition(parentFileList,levelNameObject.name);           
 
+                if (arrayPosition==null){
+                $("#editor-area").html("");
+                return;
+                }
                 let fileInfo = parentFileList[arrayPosition];
 
                 let objectList = fileInfo.thisLevelObject;
@@ -179,11 +197,9 @@ export default class Editor {
 
                 let $markup;
                 objectListObjectArry.forEach(object=>{
-               
-                    $markup +=`<div draggable="true"  style=" height : ${object.height}; width:${object.height}; 
-                    background-image:${object.image}; position: relative; left: ${object.left}; top: ${object.top}; "></div>`;
- 
-                  
+                    $markup +=`<div draggable="true"  style=" height : ${object.height}; width:${object.width}; 
+                    background-image:${object.backgroundImage}; border-radius:${object.objectShape};
+                    position: absolute; left: ${object.left}; top: ${object.top}; "></div>`;
                  }); 
                  $("#editor-area").html($markup);
             })
@@ -201,6 +217,7 @@ export default class Editor {
                 return arrayPosition;
                 arrayPosition++;
             }
+            
         }
     
     _populateGameObjectList() {
